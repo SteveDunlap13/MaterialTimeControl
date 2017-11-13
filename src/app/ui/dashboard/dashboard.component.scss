@@ -1,0 +1,23 @@
+
+
+.container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    position: relative;
+    margin: 1em;
+}
+
+.demo-form {
+    padding: 4em;
+    background: white;
+    -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.4);
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.4);
+}

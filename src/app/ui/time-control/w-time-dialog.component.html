@@ -1,0 +1,27 @@
+
+<div mat-dialog-content class="w-timepicker">
+
+    <mat-toolbar color="primary" class="w-timepicker-time-container">
+        
+        <div class="w-timepicker-selected-time">
+            <span [ngClass]="currentView === VIEW_HOURS ? 'active': ''" (click)="setCurrentView(VIEW_HOURS)">{{ userTime.hour }}:</span>
+            <span [ngClass]="currentView === VIEW_MINUTES ? 'active': ''" (click)="setCurrentView(VIEW_MINUTES)">{{ formatMinute() }}</span>
+        </div>
+        <div class="w-timepicker-selected-ampm">
+            <span (click)="setMeridien('AM')" [ngClass]="userTime.meriden === 'AM' ? 'active' : ''">AM</span>
+            <span (click)="setMeridien('PM')" [ngClass]="userTime.meriden === 'PM' ? 'active' : ''">PM</span>
+        </div>
+    
+    </mat-toolbar>
+
+    <div>
+        <w-clock class="w-animation-zoom" [userTime]="userTime" [(currentView)]="currentView" (viewChange)="setCurrentView($event)"></w-clock>
+
+        <div mat-dialog-actions align="end">
+            <button mat-button (click)="revert()">Cancel</button>
+            <button mat-button color="primary" (click)="submit()">OK</button>
+        </div>
+    </div>
+
+</div>
+

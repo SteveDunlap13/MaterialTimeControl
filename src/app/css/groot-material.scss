@@ -1,0 +1,121 @@
+
+@import '~@angular/material/theming';
+
+
+$blue_palette: (
+    50 : #e8f2fb,
+    100 : #c6ddf5,
+    200 : #a0c7ef,
+    300 : #7ab1e8,
+    400 : #5ea0e3,
+    500 : #418fde,
+    600 : #3b87da,
+    700 : #327cd5,
+    800 : #2a72d1,
+    900 : #1c60c8,
+    A100 : #fefeff,
+    A200 : #cbdeff,
+    A400 : #98bdff,
+    A700 : #7fadff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$green_palette: (
+    50 : #eff7e4,
+    100 : #d7ecbc,
+    200 : #bcdf90,
+    300 : #a1d263,
+    400 : #8cc841,
+    500 : #78be20,
+    600 : #70b81c,
+    700 : #65af18,
+    800 : #5ba713,
+    900 : #48990b,
+    A100 : #ddffc8,
+    A200 : #bdff95,
+    A400 : #9dff62,
+    A700 : #8eff48,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$orange_palette: (
+    50 : #fdf5e0,
+    100 : #fbe5b3,
+    200 : #f9d480,
+    300 : #f6c34d,
+    400 : #f4b626,
+    500 : #f2a900,
+    600 : #f0a200,
+    700 : #ee9800,
+    800 : #ec8f00,
+    900 : #e87e00,
+    A100 : #ffffff,
+    A200 : #ffeddc,
+    A400 : #ffd3a9,
+    A700 : #ffc690,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+
+@include mat-core();
+
+
+// main app styling
+@import "../app.component.scss";
+
+
+// Default light theme
+$primary-palette: mat-palette($blue_palette);
+$accent-palette:  mat-palette($orange_palette);
+$warn-palette:  mat-palette($mat-red);
+$highlight-palette:  mat-palette($green_palette);
+
+$valyrian-theme: mat-light-theme($primary-palette, $accent-palette, $warn-palette);
+
+// add our valyrian theme to angular material
+@include angular-material-theme($valyrian-theme);

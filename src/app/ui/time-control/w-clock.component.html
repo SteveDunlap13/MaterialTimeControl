@@ -1,0 +1,21 @@
+
+<div class="w-clock">
+    <div class="w-clock-container">
+        
+        <!-- Clock center -->
+        <button mat-mini-fab color="primary" class="w-clock-center"></button>
+
+        <!-- Clock hand -->
+        <mat-toolbar [ngStyle]="getPointerStyle()" class="w-pointer mat-primary">
+            <button mat-mini-fab color="primary" class="w-clock-selected mat-raised"></button>
+        </mat-toolbar>
+        
+        <!-- Hour / Minute number faces -->
+        <button mat-mini-fab 
+            *ngFor="let step of steps; let i = index"
+            [ngClass]="getTimeValueClass(step, i)" 
+            (click)="changeTimeValue(step)">
+            {{ step }}
+        </button>
+    </div>
+</div>

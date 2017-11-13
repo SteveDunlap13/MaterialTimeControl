@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "allowJs": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "noImplicitAny": false,
+    "noStrictGenericChecks": true,
+    "lib": ["es7", "dom"],
+    "suppressImplicitAnyIndexErrors": true,
+    "typeRoots": ["node_modules/@types/"],
+    "types": [
+      "node"
+    ]
+  }
+}
