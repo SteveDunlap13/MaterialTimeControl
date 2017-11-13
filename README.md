@@ -5,15 +5,15 @@ This component only shows a 12 hour clock.
 
 ## Getting Started
 
-To run this demo, npm install then np start
+To run this demo, npm install then np start<br/>
 webpack-dev-server will fire up on port 3000
 
 ### Prerequisites
 
-Required:
-normal angular packages 5.0.1
-"@angular/material": "^5.0.0-rc0",
-"@angular/flex-layout": "^2.0.0-beta.10-4905443",
+Required:<br/>
+normal angular packages 5.0.1<br/>
+"@angular/material": "^5.0.0-rc0"<br/>
+"@angular/flex-layout": "^2.0.0-beta.10-4905443"
 
 
 ## License
