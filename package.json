@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "webpack-dev-server --env.target=dev --color --inline --progress --port 3000"
+    "start": "webpack-dev-server --color --inline --progress --port 3000"
   },
   "dependencies": {
     "@angular/animations": "^5.0.1",
