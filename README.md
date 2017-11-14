@@ -6,7 +6,8 @@ The main focus here a button beside a normal textbox that opens a dialog to sele
 <br/><br/>
 I didn't focus on any responsive layouts as the only place I needed this was desktop but since it leverages flex throughout, it could be modified to change orientation in portrait phone mode.
 <br/><br/>
-
+See a demo with this stackblitz -> https://stackblitz.com/edit/angular-material2-time-picker
+<br/><br/>
 Enjoy!
 
 ![Dialog Hours](https://github.com/SteveDunlap13/MaterialTimeControl/blob/master/src/assets/images/OpenDialog_Hours.png)
