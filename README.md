@@ -1,4 +1,4 @@
-# MaterialTimeControl
+# Material Time Control
 
 A simple time picker component using angular/material2 (5.0.0-rc0).<br/>
 While this component only shows a 12 hour clock it can easily be extended to show 12/24 mode.<br/>
