@@ -2,9 +2,9 @@
 
 A simple time picker component using angular/material2 (5.0.0-rc0).<br/>
 While this component only shows a 12 hour clock it can easily be extended to show 12/24 mode.<br/>
-The mian focus here a button beside a normla textbox that opens a dialog to select your hour, minute and meriden.
+The main focus here a button beside a normal textbox that opens a dialog to select your hour, minute and meridan.
 <br/><br/>
-I didn't focus on any responsive layouts as the only place I needed this was desktop but since it leverages flex througout, it could be modified to change orientation in portrait phone mode.
+I didn't focus on any responsive layouts as the only place I needed this was desktop but since it leverages flex throughout, it could be modified to change orientation in portrait phone mode.
 <br/><br/>
 Enjoy!
 
