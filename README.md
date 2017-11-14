@@ -11,7 +11,7 @@ Enjoy!
 
 ![Dialog Hours](https://github.com/SteveDunlap13/MaterialTimeControl/blob/master/src/assets/images/OpenDialog_Hours.png)
 ![Dialog Minutes](https://github.com/SteveDunlap13/MaterialTimeControl/blob/master/src/assets/images/OpenDialog_Minutes.png)
-[Demo](https://github.com/SteveDunlap13/MaterialTimeControl/blob/master/src/assets/images/DemoTimeControl.png)
+
 
 ## Getting Started
 
