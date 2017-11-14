@@ -7,11 +7,11 @@ The main focus here a button beside a normal textbox that opens a dialog to sele
 I didn't focus on any responsive layouts as the only place I needed this was desktop but since it leverages flex throughout, it could be modified to change orientation in portrait phone mode.
 <br/><br/>
 
+Enjoy!
+
 ![Dialog Hours](https://github.com/SteveDunlap13/MaterialTimeControl/blob/master/src/assets/images/OpenDialog_Hours.png)
 ![Dialog Minutes](https://github.com/SteveDunlap13/MaterialTimeControl/blob/master/src/assets/images/OpenDialog_Minutes.png)
-![Demo](https://github.com/SteveDunlap13/MaterialTimeControl/blob/master/src/assets/images/DemoTimeControl.png)
-
-Enjoy!
+[Demo](https://github.com/SteveDunlap13/MaterialTimeControl/blob/master/src/assets/images/DemoTimeControl.png)
 
 ## Getting Started
 
