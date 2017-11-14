@@ -23,7 +23,7 @@ normal angular packages 5.0.1<br/>
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details
 
 ## Acknowledgments
 
