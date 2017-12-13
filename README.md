@@ -10,8 +10,8 @@ See a demo with this stackblitz -> https://stackblitz.com/edit/angular-material2
 <br/><br/>
 Enjoy!
 
-![Dialog Hours](/demo/images/OpenDialog_Hours.png?raw=true)
-![Dialog Minutes](/demo/assets/images/OpenDialog_Minutes.png?raw=true)
+![Dialog Hours](./demo/assets/OpenDialog_Hours.png?raw=true)
+![Dialog Minutes](./demo/assets/OpenDialog_Minutes.png?raw=true)
 
 
 ## Getting Started
