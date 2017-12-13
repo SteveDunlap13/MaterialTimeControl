@@ -1,29 +1,55 @@
 # Material Time Control
 
-A simple time picker component using angular/material2 (5.0.0-rc0).<br/>
-While this component only shows a 12 hour clock it can easily be extended to show 12/24 mode.<br/>
-The main focus here a button beside a normal textbox that opens a dialog to select your hour, minute and meridan.
-<br/><br/>
-I didn't focus on any responsive layouts as the only place I needed this was desktop but since it leverages flex throughout, it could be modified to change orientation in portrait phone mode.
-<br/><br/>
-See a demo with this stackblitz -> https://stackblitz.com/edit/material-time-control
-<br/><br/>
+A simple time picker component using angular/material2 (5.0.0-rc0).  
+While this component only shows a 12 hour clock it can easily be extended to show 12/24 mode.  
+The main focus here a button beside a normal textbox that opens a dialog to select your hour, minute and meridan.  
+  
+See a demo with this stackblitz -> https://stackblitz.com/edit/material-time-control  
+  
 Enjoy!
 
 ![Dialog Hours](./demo/assets/OpenDialog_Hours.png?raw=true)
 ![Dialog Minutes](./demo/assets/OpenDialog_Minutes.png?raw=true)
 
+## Install
+
+```
+yarn add SteveDunlap13/MaterialTimeControl
+```
+or
+```
+npm install SteveDunlap13/MaterialTimeControl
+```
 
 ## Getting Started
 
-To run this demo, npm install then np start<br/>
-webpack-dev-server will fire up on port 3000
+To run this demo, run
+
+```
+npm install
+npm start
+```
+or
+```
+yarn install
+yarn start
+```
+
+and open http://localhost:4200/ in your browser.
+
+## Build
+
+To build the module run
+
+```
+tsc
+```
 
 ### Prerequisites
 
-Required:<br/>
-normal angular packages 5.0.1<br/>
-"@angular/material": "^5.0.0-rc0"<br/>
+Required:  
+normal angular packages 5.0.1  
+"@angular/material": "^5.0.0"  
 "@angular/flex-layout": "^2.0.0-beta.10-4905443"
 
 
