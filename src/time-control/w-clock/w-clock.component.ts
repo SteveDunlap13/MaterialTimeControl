@@ -1,0 +1,135 @@
+
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
+
+// Current type to show
+export enum CLOCK_TYPE {
+    HOURS = 1,
+    MINUTES = 2
+}
+
+export type TimeFormat = 12 | 24;
+
+export interface ITime {
+    hour: number;
+    minute: number;
+    meriden: 'PM' | 'AM';
+};
+
+@Component({
+    selector: 'w-clock',
+    styleUrls: ['./w-clock.component.scss'],
+    templateUrl: './w-clock.component.html'
+})
+export class WClockComponent implements OnChanges, OnInit {
+
+    @Input() userTime: ITime;
+    @Output() userTimeChange: EventEmitter<ITime> = new EventEmitter();
+
+    @Input() currentView: CLOCK_TYPE;
+    @Output() viewChange = new EventEmitter<CLOCK_TYPE>();
+
+    @Input() color: string;
+
+    private steps = [];
+    private selectedTimePart;
+
+    private format: TimeFormat = 12;
+    private STEP_DEG: number;
+
+    ngOnInit()  {
+
+    }
+
+    ngOnChanges() {
+        this.STEP_DEG = 360 / this.format;
+        this.setupUI();
+    }
+
+
+    private setupUI() {
+
+        this.steps = [];
+
+        switch (this.currentView) {
+
+            case CLOCK_TYPE.HOURS:
+
+                for (let i = 1; i <= this.format; i++) {
+
+                    this.steps.push(i);
+                    this.selectedTimePart = this.userTime.hour || 0;
+                    if (this.selectedTimePart > this.format) {
+
+                        this.selectedTimePart -= this.format;
+                    }
+                }
+                break;
+
+            case CLOCK_TYPE.MINUTES:
+
+                for (let i = 5; i <= 55; i += 5) {
+                    this.steps.push(i);
+                }
+                this.steps.push(0);
+                this.selectedTimePart = this.userTime.minute || 0;
+                break;
+        }
+    }
+
+    private getPointerStyle() {
+
+        let divider = 1;
+        switch (this.currentView) {
+
+            case CLOCK_TYPE.HOURS:
+                divider = this.format;
+                break;
+
+            case CLOCK_TYPE.MINUTES:
+                divider = 60;
+                break;
+        }
+
+        let degrees = 0;
+        if (this.currentView === CLOCK_TYPE.HOURS) {
+            degrees = Math.round(this.userTime.hour * (360 / divider)) - 180;
+        } else {
+            degrees = Math.round(this.userTime.minute * (360 / divider)) - 180;
+        }
+
+        const style = {
+            '-webkit-transform': 'rotate(' + degrees + 'deg)',
+            '-ms-transform': 'rotate(' + degrees + 'deg)',
+            'transform': 'rotate(' + degrees + 'deg)'
+        };
+
+        return style;
+    }
+
+    private getTimeValueClass(step: number, index: number) {
+        let classes = 'w-clock-step w-clock-deg' + (this.STEP_DEG * (index + 1));
+
+        if (this.selectedTimePart === step) {
+
+            classes += ' mat-primary';
+        }
+
+        return classes;
+    }
+
+    private changeTimeValue(step: number) {
+
+        if (this.currentView === CLOCK_TYPE.HOURS) {
+            this.userTime.hour = step;
+
+            // auto switch to minutes
+            this.viewChange.emit(CLOCK_TYPE.MINUTES);
+        } else {
+            this.userTime.minute = step;
+
+            // auto switch to hours
+            this.viewChange.emit(CLOCK_TYPE.HOURS);
+        }
+        this.userTimeChange.emit(this.userTime)
+    }
+}
