@@ -11,14 +11,14 @@ import { CLOCK_TYPE, ITime } from '../w-clock/w-clock.component';
 })
 export class WTimeDialogComponent {
 
-    private userTime: ITime;
+    public userTime: ITime;
     private VIEW_HOURS = CLOCK_TYPE.HOURS;
     private VIEW_MINUTES = CLOCK_TYPE.MINUTES;
     private currentView: CLOCK_TYPE = this.VIEW_HOURS;
 
     constructor(
         @Inject(MAT_DIALOG_DATA) private data: {time: ITime, color: string},
-        @Inject(MAT_DIALOG_DATA) private color: string,
+        @Inject(MAT_DIALOG_DATA) public color: string,
         private dialogRef: MatDialogRef<WTimeDialogComponent>,
     ) {
         this.userTime = data.time;
@@ -26,11 +26,11 @@ export class WTimeDialogComponent {
         console.log('this.color', this.color);
     }
 
-    private revert() {
+    public revert() {
         this.dialogRef.close(-1);
     }
 
-    private submit() {
+    public submit() {
         this.dialogRef.close(this.userTime);
     }
 }

@@ -12,14 +12,17 @@ export class WTimeComponent implements OnInit {
   @Input() userTime: ITime;
   @Output() userTimeChange: EventEmitter<ITime> = new EventEmitter();
 
+  @Input() revertLabel: string;
+  @Input() submitLabel: string;
+
   @Output() onRevert: EventEmitter<null> = new EventEmitter();
   @Output() onSubmit: EventEmitter<ITime> = new EventEmitter();
 
   @Input() color: string;
 
-  private VIEW_HOURS = CLOCK_TYPE.HOURS;
-  private VIEW_MINUTES = CLOCK_TYPE.MINUTES;
-  private currentView: CLOCK_TYPE = this.VIEW_HOURS;
+  public VIEW_HOURS = CLOCK_TYPE.HOURS;
+  public VIEW_MINUTES = CLOCK_TYPE.MINUTES;
+  public currentView: CLOCK_TYPE = this.VIEW_HOURS;
 
   constructor() {}
 
@@ -31,38 +34,41 @@ export class WTimeComponent implements OnInit {
         meriden: 'PM'
       };
     }
+
+    if (!this.revertLabel) {
+      this.revertLabel = 'Cancel'
+    }
+
+    if (!this.submitLabel) {
+      this.submitLabel = 'Okay'
+    }
   }
 
-  private formatMinute(): string {
-
+  public formatMinute(): string {
     if (this.userTime.minute < 10) {
-
       return '0' + String(this.userTime.minute);
     } else {
-
       return String(this.userTime.minute);
     }
   }
 
-  private setCurrentView(type: CLOCK_TYPE) {
-
+  public setCurrentView(type: CLOCK_TYPE) {
     this.currentView = type;
   }
 
-  private setMeridien(m: 'PM' | 'AM') {
-
+  public setMeridien(m: 'PM' | 'AM') {
     this.userTime.meriden = m;
   }
 
-  private revert() {
+  public revert() {
     this.onRevert.emit();
   }
 
-  private submit() {
+  public submit() {
     this.onSubmit.emit(this.userTime);
   }
 
-  private emituserTimeChange(event) {
+  public emituserTimeChange(event) {
     this.userTimeChange.emit(this.userTime);
   }
 

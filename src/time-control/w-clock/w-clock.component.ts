@@ -22,15 +22,15 @@ export interface ITime {
 })
 export class WClockComponent implements OnChanges, OnInit {
 
-    @Input() userTime: ITime;
-    @Output() userTimeChange: EventEmitter<ITime> = new EventEmitter();
+    @Input() public userTime: ITime;
+    @Output() public userTimeChange: EventEmitter<ITime> = new EventEmitter();
 
-    @Input() currentView: CLOCK_TYPE;
-    @Output() viewChange = new EventEmitter<CLOCK_TYPE>();
+    @Input() public currentView: CLOCK_TYPE;
+    @Output() public viewChange = new EventEmitter<CLOCK_TYPE>();
 
-    @Input() color: string;
+    @Input() public color: string;
 
-    private steps = [];
+    public steps = new Array<number>();
     private selectedTimePart;
 
     private format: TimeFormat = 12;
@@ -47,15 +47,10 @@ export class WClockComponent implements OnChanges, OnInit {
 
 
     private setupUI() {
-
-        this.steps = [];
-
+        this.steps = new Array<number>();
         switch (this.currentView) {
-
             case CLOCK_TYPE.HOURS:
-
                 for (let i = 1; i <= this.format; i++) {
-
                     this.steps.push(i);
                     this.selectedTimePart = this.userTime.hour || 0;
                     if (this.selectedTimePart > this.format) {
@@ -66,7 +61,6 @@ export class WClockComponent implements OnChanges, OnInit {
                 break;
 
             case CLOCK_TYPE.MINUTES:
-
                 for (let i = 5; i <= 55; i += 5) {
                     this.steps.push(i);
                 }
@@ -76,8 +70,7 @@ export class WClockComponent implements OnChanges, OnInit {
         }
     }
 
-    private getPointerStyle() {
-
+    public getPointerStyle() {
         let divider = 1;
         switch (this.currentView) {
 

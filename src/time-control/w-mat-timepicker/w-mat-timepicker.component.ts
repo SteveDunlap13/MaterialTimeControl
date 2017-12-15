@@ -38,7 +38,7 @@ export class WMatTimePickerComponent implements OnInit {
     }
 
 
-    private showPicker($event) {
+    public showPicker($event) {
 
         const dialogRef = this.dialog.open(WTimeDialogComponent, {
             data: {
@@ -53,7 +53,6 @@ export class WMatTimePickerComponent implements OnInit {
 
         dialogRef.afterClosed()
         .subscribe((result: ITime | -1) => {
-
             // result will be update userTime object or -1 or undefined (closed dialog w/o clicking cancel)
             if (result === undefined) {
                 return;
@@ -62,11 +61,10 @@ export class WMatTimePickerComponent implements OnInit {
                 this.emituserTimeChange();
             }
         });
-
         return false;
     }
 
     private emituserTimeChange() {
         this.userTimeChange.emit(this.userTime);
-      }
+    }
 }

@@ -16,8 +16,8 @@
       <w-clock [color]="color" class="w-animation-zoom" [userTime]="userTime" (userTimeChange)="emituserTimeChange($event)" [(currentView)]="currentView" (viewChange)="setCurrentView($event)"></w-clock>
 
       <div fxFlexAlign="end">
-          <button mat-button (click)="revert()">Cancel</button>
-          <button mat-button [color]="color" (click)="submit()">OK</button>
+          <button mat-button (click)="revert()">{{revertLabel}}</button>
+          <button mat-button [color]="color" (click)="submit()">{{submitLabel}}</button>
       </div>
   </div>
 </div>
