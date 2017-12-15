@@ -1,0 +1,189 @@
+.w-clock-wrapper {
+  height: 100%;
+  padding: 0 24px;
+  .w-clock {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 24px;
+    background: #ededed;
+    .w-clock-container {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      display: block;
+    }
+    .w-clock-center {
+      height: 6px;
+      width: 6px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      border-radius: 50%;
+    }
+    .w-pointer {
+      box-shadow: none;
+      width: 1px;
+      height: 50%;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: 0 auto;
+      padding: 0;
+      transform-origin: top center;
+      transition: transform 200ms;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .w-clock-step {
+      display: block;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      transition: transform 200ms;
+      .mat-mini-fab {
+        box-shadow: none;
+        background-color: transparent;
+      }
+    }
+    .w-clock-selected {
+      position: absolute;
+      bottom: -19px;
+      left: -19px;
+      min-width: 0;
+      min-height: 0;
+      pointer-events: none;
+      box-shadow: none;
+      cursor: none;
+    }
+  }
+}
+
+.w-clock-deg0 {
+  top: 0%;
+  left: 50%;
+}
+
+.w-clock-deg15 {
+  top: 1.70370869%;
+  left: 62.94095226%;
+}
+
+.w-clock-deg30 {
+  top: 6.69872981%;
+  left: 75%;
+}
+
+.w-clock-deg45 {
+  top: 14.64466094%;
+  left: 85.35533905%;
+}
+
+.w-clock-deg60 {
+  top: 25%;
+  left: 93.30127019%;
+}
+
+.w-clock-deg75 {
+  top: 37.05904774%;
+  left: 98.29629131%;
+}
+
+.w-clock-deg90 {
+  top: 50%;
+  left: 100%;
+}
+
+.w-clock-deg105 {
+  top: 62.94095226%;
+  left: 98.29629131%;
+}
+
+.w-clock-deg120 {
+  top: 75%;
+  left: 93.30127019%;
+}
+
+.w-clock-deg135 {
+  top: 85.35533906%;
+  left: 85.35533906%;
+}
+
+.w-clock-deg150 {
+  top: 93.30127019%;
+  left: 75%;
+}
+
+.w-clock-deg165 {
+  top: 98.29629131%;
+  left: 62.94095226%;
+}
+
+.w-clock-deg180 {
+  top: 100%;
+  left: 50%;
+}
+
+.w-clock-deg195 {
+  top: 98.29629131%;
+  left: 37.05904774%;
+}
+
+.w-clock-deg210 {
+  top: 93.30127019%;
+  left: 25%;
+}
+
+.w-clock-deg225 {
+  top: 85.35533906%;
+  left: 14.64466094%;
+}
+
+.w-clock-deg240 {
+  top: 75%;
+  left: 6.69872981%;
+}
+
+.w-clock-deg255 {
+  top: 62.94095226%;
+  left: 1.703708686%;
+}
+
+.w-clock-deg270 {
+  top: 50%;
+  left: 0%;
+}
+
+.w-clock-deg285 {
+  top: 37.05904774%;
+  left: 1.703708686%;
+}
+
+.w-clock-deg300 {
+  top: 25%;
+  left: 6.69872981%;
+}
+
+.w-clock-deg315 {
+  top: 14.64466094%;
+  left: 14.64466094%;
+}
+
+.w-clock-deg330 {
+  top: 6.69872981%;
+  left: 25%;
+}
+
+.w-clock-deg345 {
+  top: 1.703708686%;
+  left: 37.05904774%;
+}
+
+.w-clock-deg360 {
+  top: 0%;
+  left: 50%;
+}
