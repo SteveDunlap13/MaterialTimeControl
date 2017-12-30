@@ -62,3 +62,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 * Hat tip to <a href="https://github.com/classlinkinc/angular-material-time-picker">classlinkinc/angular-material-time-picker</a>
 for the awesome CSS to display the clock component
 
+## Updates
+
+Dec 30, 2017
+- merged a bunch of improvements from JumpLink (thank you)
+- fixed the top of the hour bug noted by JaxonWright
+- added 24 hour functionality as requested by Francis-Ide
+- updated packages (expect typescript)
