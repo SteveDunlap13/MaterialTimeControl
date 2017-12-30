@@ -1,6 +1,9 @@
+
 import { Component, Input, Output, OnInit, Inject, EventEmitter } from '@angular/core';
 
 import { CLOCK_TYPE, ITime } from '../w-clock/w-clock.component';
+
+
 
 @Component({
   selector: 'w-time',
@@ -34,7 +37,8 @@ export class WTimeComponent implements OnInit {
 
         hour: 6,
         minute: 0,
-        meriden: 'PM'
+        meriden: 'PM',
+        format: 12
       };
     }
 
@@ -49,9 +53,20 @@ export class WTimeComponent implements OnInit {
     }
   }
 
+  public formatHour(): string {
+
+    if (this.userTime.hour === 24) {
+      return '00';
+    } else if (this.userTime.hour < 12) {
+      return '0' + String(this.userTime.hour);
+    } else {
+      return String(this.userTime.hour);
+    }
+  }
+
   public formatMinute(): string {
 
-    if (this.userTime.minute.toString().length === 1) {
+    if (this.userTime.minute === 0) {
       return '00';
     } else if (this.userTime.minute < 10) {
       return '0' + String(this.userTime.minute);

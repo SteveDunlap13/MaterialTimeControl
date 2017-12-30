@@ -5,6 +5,8 @@ import { MAT_DIALOG_DATA } from '@angular/material';
 
 import { CLOCK_TYPE, ITime } from '../w-clock/w-clock.component';
 
+
+
 @Component({
     styleUrls: ['./w-time-dialog.component.scss'],
     templateUrl: './w-time-dialog.component.html'

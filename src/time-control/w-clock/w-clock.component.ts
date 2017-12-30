@@ -14,6 +14,7 @@ export interface ITime {
     hour: number;
     minute: number;
     meriden: 'PM' | 'AM';
+    format: TimeFormat;
 };
 
 @Component({
@@ -33,15 +34,12 @@ export class WClockComponent implements OnChanges {
 
     public steps = new Array<number>();
     private selectedTimePart;
-
-    private format: TimeFormat = 12;
     private STEP_DEG: number;
 
 
 
     ngOnChanges() {
 
-        this.STEP_DEG = 360 / this.format;
         this.setupUI();
     }
 
@@ -53,18 +51,23 @@ export class WClockComponent implements OnChanges {
         switch (this.currentView) {
 
             case CLOCK_TYPE.HOURS:
-                for (let i = 1; i <= this.format; i++) {
+
+                for (let i = 1; i <= this.userTime.format; i++) {
+
                     this.steps.push(i);
                     this.selectedTimePart = this.userTime.hour || 0;
-                    if (this.selectedTimePart > this.format) {
 
-                        this.selectedTimePart -= this.format;
+                    if (this.selectedTimePart > this.userTime.format) {
+
+                        this.selectedTimePart -= this.userTime.format;
                     }
                 }
                 break;
 
             case CLOCK_TYPE.MINUTES:
+
                 for (let i = 5; i <= 55; i += 5) {
+
                     this.steps.push(i);
                 }
                 this.steps.push(0);
@@ -79,7 +82,7 @@ export class WClockComponent implements OnChanges {
         switch (this.currentView) {
 
             case CLOCK_TYPE.HOURS:
-                divider = this.format;
+                divider = this.userTime.format;
                 break;
 
             case CLOCK_TYPE.MINUTES:
@@ -106,6 +109,11 @@ export class WClockComponent implements OnChanges {
 
     private getTimeValueClass(step: number, index: number) {
 
+        if (this.currentView === CLOCK_TYPE.HOURS) {
+            this.STEP_DEG = 360 / this.userTime.format;
+        } else {
+            this.STEP_DEG = 360 / 12;
+        }
         let classes = 'w-clock-step w-clock-deg' + (this.STEP_DEG * (index + 1));
 
         if (this.selectedTimePart === step) {

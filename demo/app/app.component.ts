@@ -1,4 +1,7 @@
+
 import { Component } from '@angular/core';
+
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  private exportTime = {hour: 7, minute: 15, meriden: 'PM'};
+
+  private exportTime = { hour: 7, minute: 15, meriden: 'PM', format: 24 };
 }

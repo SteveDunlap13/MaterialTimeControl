@@ -2,10 +2,10 @@
   <mat-toolbar fxLayout="column"  fxLayout.lt-md="row" fxLayoutAlign="center center" [color]="color" class="w-timepicker-time-container">
       
       <div class="w-timepicker-selected-time">
-          <span [class]="currentView === VIEW_HOURS ? 'active': ''" (click)="setCurrentView(VIEW_HOURS)">{{ userTime.hour }}:</span>
+          <span [class]="currentView === VIEW_HOURS ? 'active': ''" (click)="setCurrentView(VIEW_HOURS)">{{ formatHour() }}:</span>
           <span [class]="currentView === VIEW_MINUTES ? 'active': ''" (click)="setCurrentView(VIEW_MINUTES)">{{ formatMinute() }}</span>
       </div>
-      <div fxLayout="column" fxLayoutAlign="center center" class="w-timepicker-selected-ampm">
+      <div fxLayout="column" fxLayoutAlign="center center" class="w-timepicker-selected-ampm" *ngIf="userTime.format === 12">
           <span (click)="setMeridien('AM')" [class]="userTime.meriden === 'AM' ? 'active' : ''">AM</span>
           <span (click)="setMeridien('PM')" [class]="userTime.meriden === 'PM' ? 'active' : ''">PM</span>
       </div>

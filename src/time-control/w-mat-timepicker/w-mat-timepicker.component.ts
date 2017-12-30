@@ -5,6 +5,8 @@ import { MatDialog } from '@angular/material';
 import { WTimeDialogComponent } from '../w-time-dialog/w-time-dialog.component';
 import { ITime } from '../w-clock/w-clock.component';
 
+
+
 @Component({
     selector: 'w-mat-timepicker',
     styleUrls: ['./w-mat-timepicker.component.scss'],
@@ -28,7 +30,8 @@ export class WMatTimePickerComponent implements OnInit {
 
                 hour: 10,
                 minute: 25,
-                meriden: 'PM'
+                meriden: 'PM',
+                format: 24
             }
         }
     }
@@ -39,16 +42,26 @@ export class WMatTimePickerComponent implements OnInit {
             return '';
         }
 
+        let meriden = `${this.userTime.meriden}`;
+        if (this.userTime.format === 24) {
+            meriden = '';
+        }
+
+        let hour = `${this.userTime.hour}`;
+        if (this.userTime.hour === 24) {
+            hour = '00';
+        }
+
         if (this.userTime.minute === 0) {
-            return `${this.userTime.hour}:00 ${this.userTime.meriden}`;
+            return `${hour}:00 ${meriden}`;
 
         } else if (this.userTime.minute < 10) {
 
             const tt = '0' + String(this.userTime.minute);
-            return `${this.userTime.hour}:${tt} ${this.userTime.meriden}`;
+            return `${hour}:${tt} ${meriden}`;
 
         } else {
-            return `${this.userTime.hour}:${this.userTime.minute} ${this.userTime.meriden}`;
+            return `${hour}:${this.userTime.minute} ${meriden}`;
         }
     }
 
@@ -61,7 +74,8 @@ export class WMatTimePickerComponent implements OnInit {
                 time: {
                     hour: this.userTime.hour,
                     minute: this.userTime.minute,
-                    meriden: this.userTime.meriden
+                    meriden: this.userTime.meriden,
+                    format: this.userTime.format
                 },
                 color: this.color
             }
