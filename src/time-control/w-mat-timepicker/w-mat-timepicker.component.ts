@@ -18,11 +18,14 @@ export class WMatTimePickerComponent implements OnInit {
 
     @Input() color: string;
 
-    constructor(private dialog: MatDialog) {}
+    constructor(private dialog: MatDialog) { }
 
     ngOnInit() {
+
         if (!this.userTime) {
+
             this.userTime = {
+
                 hour: 10,
                 minute: 25,
                 meriden: 'PM'
@@ -31,16 +34,29 @@ export class WMatTimePickerComponent implements OnInit {
     }
 
     private get time(): string {
+
         if (!this.userTime) {
             return '';
         }
-        return `${this.userTime.hour}:${this.userTime.minute} ${this.userTime.meriden}`;
+
+        if (this.userTime.minute === 0) {
+            return `${this.userTime.hour}:00 ${this.userTime.meriden}`;
+
+        } else if (this.userTime.minute < 10) {
+
+            const tt = '0' + String(this.userTime.minute);
+            return `${this.userTime.hour}:${tt} ${this.userTime.meriden}`;
+
+        } else {
+            return `${this.userTime.hour}:${this.userTime.minute} ${this.userTime.meriden}`;
+        }
     }
 
 
     public showPicker($event) {
 
         const dialogRef = this.dialog.open(WTimeDialogComponent, {
+
             data: {
                 time: {
                     hour: this.userTime.hour,
@@ -52,19 +68,21 @@ export class WMatTimePickerComponent implements OnInit {
         });
 
         dialogRef.afterClosed()
-        .subscribe((result: ITime | -1) => {
-            // result will be update userTime object or -1 or undefined (closed dialog w/o clicking cancel)
-            if (result === undefined) {
-                return;
-            } else if (result !== -1) {
-                this.userTime = result;
-                this.emituserTimeChange();
-            }
-        });
+            .subscribe((result: ITime | -1) => {
+
+                // result will be update userTime object or -1 or undefined (closed dialog w/o clicking cancel)
+                if (result === undefined) {
+                    return;
+                } else if (result !== -1) {
+                    this.userTime = result;
+                    this.emituserTimeChange();
+                }
+            });
         return false;
     }
 
     private emituserTimeChange() {
+
         this.userTimeChange.emit(this.userTime);
     }
 }

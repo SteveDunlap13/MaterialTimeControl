@@ -10,6 +10,7 @@ export enum CLOCK_TYPE {
 export type TimeFormat = 12 | 24;
 
 export interface ITime {
+
     hour: number;
     minute: number;
     meriden: 'PM' | 'AM';
@@ -20,7 +21,7 @@ export interface ITime {
     styleUrls: ['./w-clock.component.scss'],
     templateUrl: './w-clock.component.html'
 })
-export class WClockComponent implements OnChanges, OnInit {
+export class WClockComponent implements OnChanges {
 
     @Input() public userTime: ITime;
     @Output() public userTimeChange: EventEmitter<ITime> = new EventEmitter();
@@ -36,19 +37,21 @@ export class WClockComponent implements OnChanges, OnInit {
     private format: TimeFormat = 12;
     private STEP_DEG: number;
 
-    ngOnInit()  {
 
-    }
 
     ngOnChanges() {
+
         this.STEP_DEG = 360 / this.format;
         this.setupUI();
     }
 
 
     private setupUI() {
+
         this.steps = new Array<number>();
+
         switch (this.currentView) {
+
             case CLOCK_TYPE.HOURS:
                 for (let i = 1; i <= this.format; i++) {
                     this.steps.push(i);
@@ -71,6 +74,7 @@ export class WClockComponent implements OnChanges, OnInit {
     }
 
     public getPointerStyle() {
+
         let divider = 1;
         switch (this.currentView) {
 
@@ -91,6 +95,7 @@ export class WClockComponent implements OnChanges, OnInit {
         }
 
         const style = {
+
             '-webkit-transform': 'rotate(' + degrees + 'deg)',
             '-ms-transform': 'rotate(' + degrees + 'deg)',
             'transform': 'rotate(' + degrees + 'deg)'
@@ -100,6 +105,7 @@ export class WClockComponent implements OnChanges, OnInit {
     }
 
     private getTimeValueClass(step: number, index: number) {
+
         let classes = 'w-clock-step w-clock-deg' + (this.STEP_DEG * (index + 1));
 
         if (this.selectedTimePart === step) {

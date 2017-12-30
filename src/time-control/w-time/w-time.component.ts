@@ -1,4 +1,4 @@
-import { Component, Input, Output, OnInit, Inject, EventEmitter  } from '@angular/core';
+import { Component, Input, Output, OnInit, Inject, EventEmitter } from '@angular/core';
 
 import { CLOCK_TYPE, ITime } from '../w-clock/w-clock.component';
 
@@ -24,11 +24,14 @@ export class WTimeComponent implements OnInit {
   public VIEW_MINUTES = CLOCK_TYPE.MINUTES;
   public currentView: CLOCK_TYPE = this.VIEW_HOURS;
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit() {
+
     if (!this.userTime) {
+
       this.userTime = {
+
         hour: 6,
         minute: 0,
         meriden: 'PM'
@@ -36,16 +39,21 @@ export class WTimeComponent implements OnInit {
     }
 
     if (!this.revertLabel) {
+
       this.revertLabel = 'Cancel'
     }
 
     if (!this.submitLabel) {
+
       this.submitLabel = 'Okay'
     }
   }
 
   public formatMinute(): string {
-    if (this.userTime.minute < 10) {
+
+    if (this.userTime.minute.toString().length === 1) {
+      return '00';
+    } else if (this.userTime.minute < 10) {
       return '0' + String(this.userTime.minute);
     } else {
       return String(this.userTime.minute);
@@ -53,23 +61,27 @@ export class WTimeComponent implements OnInit {
   }
 
   public setCurrentView(type: CLOCK_TYPE) {
+
     this.currentView = type;
   }
 
   public setMeridien(m: 'PM' | 'AM') {
+
     this.userTime.meriden = m;
   }
 
   public revert() {
+
     this.onRevert.emit();
   }
 
   public submit() {
+
     this.onSubmit.emit(this.userTime);
   }
 
   public emituserTimeChange(event) {
+
     this.userTimeChange.emit(this.userTime);
   }
-
 }
