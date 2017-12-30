@@ -1,0 +1,18 @@
+
+<div fxFlex fxLayout="row" class="w-mat-timepicker">
+
+    <button mat-button (click)="showPicker($event)" class="time-picker-button">
+        <mat-icon>access_time</mat-icon>
+    </button>
+    
+    <mat-input-container fxFlex class="timeContainer">
+        <input matInput
+            class="timeInput"
+            placeholder="Selec time" 
+            id="time_Control" 
+            name="time_Control"
+            [value]="time"
+        >
+    </mat-input-container>
+
+</div>

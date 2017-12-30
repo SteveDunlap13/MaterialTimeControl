@@ -1,0 +1,23 @@
+<div class="container">
+  <form class="demo-form">
+    <w-mat-timepicker color="primary" [(userTime)]="exportTime"></w-mat-timepicker>
+  </form>
+</div>
+
+<mat-card>
+  <mat-card-content>
+      <w-time color="primary" [(userTime)]="exportTime"></w-time>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-content>
+      <w-time color="accent" [(userTime)]="exportTime" revertLabel="Revert" submitLabel="Submit"></w-time>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-content>
+      <w-time color="warn" [(userTime)]="exportTime"></w-time>
+  </mat-card-content>
+</mat-card>
