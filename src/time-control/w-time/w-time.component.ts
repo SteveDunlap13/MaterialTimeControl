@@ -55,13 +55,14 @@ export class WTimeComponent implements OnInit {
 
   public formatHour(): string {
 
-    if (this.userTime.hour === 24) {
-      return '00';
-    } else if (this.userTime.hour < 12) {
-      return '0' + String(this.userTime.hour);
-    } else {
-      return String(this.userTime.hour);
+    if (this.userTime.format === 24) {
+      if (this.userTime.hour === 24) {
+        return '00';
+      } else if (this.userTime.hour < 10) {
+        return '0' + String(this.userTime.hour);
+      }
     }
+    return String(this.userTime.hour);
   }
 
   public formatMinute(): string {
