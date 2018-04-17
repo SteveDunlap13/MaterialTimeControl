@@ -13,7 +13,7 @@
   </mat-toolbar>
 
   <div fxLayout="column" fxLayoutAlign="space-between center" class="w-time-content">
-      <w-clock [color]="color" class="w-animation-zoom" [userTime]="userTime" (userTimeChange)="emituserTimeChange($event)" [(currentView)]="currentView" (viewChange)="setCurrentView($event)"></w-clock>
+      <w-clock [color]="color" class="w-animation-zoom" [userTime]="userTime" [minTime]="minTime" [maxTime]="maxTime" (userTimeChange)="emituserTimeChange($event)" [(currentView)]="currentView" (viewChange)="setCurrentView($event)"></w-clock>
 
       <div fxFlexAlign="end">
           <button mat-button (click)="revert()">{{revertLabel}}</button>
