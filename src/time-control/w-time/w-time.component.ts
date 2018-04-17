@@ -13,6 +13,8 @@ import { CLOCK_TYPE, ITime } from '../w-clock/w-clock.component';
 export class WTimeComponent implements OnInit {
 
   @Input() userTime: ITime;
+  @Input() minTime: ITime;
+  @Input() maxTime: ITime;
   @Output() userTimeChange: EventEmitter<ITime> = new EventEmitter();
 
   @Input() revertLabel: string;
@@ -43,13 +45,11 @@ export class WTimeComponent implements OnInit {
     }
 
     if (!this.revertLabel) {
-
-      this.revertLabel = 'Cancel'
+      this.revertLabel = 'Annuler';
     }
 
     if (!this.submitLabel) {
-
-      this.submitLabel = 'Okay'
+      this.submitLabel = 'OK';
     }
   }
 
@@ -77,8 +77,16 @@ export class WTimeComponent implements OnInit {
   }
 
   public setCurrentView(type: CLOCK_TYPE) {
-
     this.currentView = type;
+    if (this.currentView === CLOCK_TYPE.HOURS || (!this.minTime && !this.maxTime)) return;
+    if (this.minTime && this.minTime.hour === this.userTime.hour && this.userTime.minute < this.minTime.minute) {
+      this.userTime.minute = this.minTime.minute;
+      return;
+    }
+    if (this.maxTime && this.maxTime.hour === this.userTime.hour && this.userTime.minute > this.maxTime.minute) {
+      this.userTime.minute = this.maxTime.minute;
+      return;
+    }
   }
 
   public setMeridien(m: 'PM' | 'AM') {

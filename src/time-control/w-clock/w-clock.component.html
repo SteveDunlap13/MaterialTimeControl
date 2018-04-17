@@ -14,8 +14,9 @@
             <div *ngFor="let step of steps; let i = index" [class]="getTimeValueClass(step, i)" >
                 <button mat-mini-fab
                     [color]="selectedTimePart === step ? color : ''"
-                    (click)="changeTimeValue(step)">
-                    {{ step }}
+                    (click)="changeTimeValue(step)"
+                    [disabled]="disabledTimeValue(step)">
+                    {{ displayStep(step) }}
                 </button>
             </div>
 
