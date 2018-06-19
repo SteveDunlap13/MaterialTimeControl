@@ -1,11 +1,8 @@
-
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 
 import { WTimeDialogComponent } from '../w-time-dialog/w-time-dialog.component';
 import { ITime } from '../w-clock/w-clock.component';
-
-
 
 @Component({
     selector: 'w-mat-timepicker',
@@ -19,6 +16,7 @@ export class WMatTimePickerComponent implements OnInit {
     @Output() userTimeChange: EventEmitter<ITime> = new EventEmitter();
 
     @Input() color: string;
+    @Input() placeholder: string;
 
     constructor(private dialog: MatDialog) { }
 
@@ -33,6 +31,10 @@ export class WMatTimePickerComponent implements OnInit {
                 meriden: 'PM',
                 format: 24
             }
+        }
+
+        if (!this.placeholder) {
+            this.placeholder = "Select Time";
         }
     }
 
@@ -64,7 +66,6 @@ export class WMatTimePickerComponent implements OnInit {
             return `${hour}:${this.userTime.minute} ${meriden}`;
         }
     }
-
 
     public showPicker($event) {
 

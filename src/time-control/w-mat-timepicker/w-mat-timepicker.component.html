@@ -1,7 +1,7 @@
 <div fxFlex fxLayout="row" class="w-mat-timepicker">
 
     <mat-form-field fxFlex class="timeContainer">
-        <input matInput class="timeInput" placeholder="Select time" id="time_Control" name="time_Control" [value]="time">
+        <input matInput class="timeInput" [placeholder]="placeholder" id="time_Control" name="time_Control" [value]="time">
 
         <button mat-button matSuffix (click)="showPicker($event)" class="time-picker-button">
             <mat-icon>access_time</mat-icon>
