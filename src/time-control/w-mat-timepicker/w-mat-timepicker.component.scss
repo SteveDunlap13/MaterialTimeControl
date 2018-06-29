@@ -1,6 +1,26 @@
-
 .time-picker-button {
-    padding: 0;
-    margin: 0;
-    min-width: 44px;
+  padding: 0;
+  margin: 0;
+  min-width: 44px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.inherent {
+  width: 22px;
+  font-size: 22px;
+}
+
+.timeInput {
+  max-width: 50px;
+}
+
+.timeContainer {
+  width: 100%;
+}
+
+::ng-deep .timeContainer > div > div > div:first-child {
+  width: 100%
 }

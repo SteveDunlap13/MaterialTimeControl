@@ -1,18 +1,23 @@
 
 <div fxFlex fxLayout="row" class="w-mat-timepicker">
 
-    <button mat-button (click)="showPicker($event)" class="time-picker-button">
-        <mat-icon>access_time</mat-icon>
-    </button>
-    
-    <mat-input-container fxFlex class="timeContainer">
-        <input matInput
-            class="timeInput"
-            placeholder="Selec time" 
-            id="time_Control" 
-            name="time_Control"
-            [value]="time"
-        >
-    </mat-input-container>
+  <button mat-button type="button" (click)="showPicker($event)" class="time-picker-button" *ngIf="position === 'left'">
+      <mat-icon>access_time</mat-icon>
+  </button>
+
+  <mat-form-field fxFlex class="timeContainer">
+    <input matInput #time_Control
+      class="timeInput"
+      placeholder="{{selectTime}}"
+      name="time_Control"
+      [value]="time"
+      (focusout)="onInputTimeLosesFocus($event.target.value)"
+    >
+    <i *ngIf="position === 'inside'" matSuffix class="material-icons pointer inherent" (click)="showPicker($event)">access_time</i>
+  </mat-form-field>
+
+  <button mat-button type="button" (click)="showPicker($event)" class="time-picker-button" *ngIf="position === 'right'">
+    <mat-icon>access_time</mat-icon>
+  </button>
 
 </div>
