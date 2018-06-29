@@ -1,5 +1,5 @@
 
-import { Component, Input, Output, OnInit, Inject, EventEmitter } from '@angular/core';
+import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 
 import { CLOCK_TYPE, ITime } from '../w-clock/w-clock.component';
 
@@ -15,8 +15,8 @@ export class WTimeComponent implements OnInit {
   @Input() userTime: ITime;
   @Output() userTimeChange: EventEmitter<ITime> = new EventEmitter();
 
-  @Input() revertLabel: string;
-  @Input() submitLabel: string;
+  @Input() revertLabel;
+  @Input() submitLabel;
 
   @Output() onRevert: EventEmitter<null> = new EventEmitter();
   @Output() onSubmit: EventEmitter<ITime> = new EventEmitter();
@@ -40,16 +40,6 @@ export class WTimeComponent implements OnInit {
         meriden: 'PM',
         format: 12
       };
-    }
-
-    if (!this.revertLabel) {
-
-      this.revertLabel = 'Cancel'
-    }
-
-    if (!this.submitLabel) {
-
-      this.submitLabel = 'Okay'
     }
   }
 

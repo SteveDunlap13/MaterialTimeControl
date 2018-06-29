@@ -1,5 +1,5 @@
 
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 
 // Current type to show
 export enum CLOCK_TYPE {

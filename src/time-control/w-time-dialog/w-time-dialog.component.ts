@@ -1,5 +1,5 @@
 
-import { Component, Inject, Input } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
 import { MAT_DIALOG_DATA } from '@angular/material';
 
@@ -18,14 +18,18 @@ export class WTimeDialogComponent {
     private VIEW_MINUTES = CLOCK_TYPE.MINUTES;
     private currentView: CLOCK_TYPE = this.VIEW_HOURS;
 
+    revertLabel: string;
+    submitLabel: string;
+
     constructor(
-        @Inject(MAT_DIALOG_DATA) private data: { time: ITime, color: string },
+        @Inject(MAT_DIALOG_DATA) private data: {time: ITime, color: string, submit: string, revert: string},
         @Inject(MAT_DIALOG_DATA) public color: string,
         private dialogRef: MatDialogRef<WTimeDialogComponent>) {
 
         this.userTime = data.time;
         this.color = data.color;
-        console.log('this.color', this.color);
+        this.submitLabel = data.submit;
+        this.revertLabel = data.revert;
     }
 
     public revert() {

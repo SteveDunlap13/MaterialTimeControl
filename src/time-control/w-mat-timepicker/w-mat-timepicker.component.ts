@@ -1,11 +1,9 @@
 
-import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { MatDialog } from '@angular/material';
 
 import { WTimeDialogComponent } from '../w-time-dialog/w-time-dialog.component';
 import { ITime } from '../w-clock/w-clock.component';
-
-
 
 @Component({
     selector: 'w-mat-timepicker',
@@ -20,51 +18,99 @@ export class WMatTimePickerComponent implements OnInit {
 
     @Input() color: string;
 
+    /**
+     * position can be
+     * - left
+     * - right
+     * - inside
+     */
+    @Input() position = 'left';
+
+    /**
+     * translation for placeholder
+     *  default: Select time
+     */
+    @Input() selectTime = 'Select time';
+
+    /**
+     * translation for submit button
+     *  default: Okay
+     */
+    @Input() submit = 'Okay';
+
+    /**
+     * translation for submit button
+     *  default: Cancel
+     */
+    @Input() revert = 'Cancel';
+
+    /**
+     * the input
+     */
+    @ViewChild('time_Control') timeInput: ElementRef;
+
     constructor(private dialog: MatDialog) { }
 
     ngOnInit() {
-
-        if (!this.userTime) {
-
-            this.userTime = {
-
-                hour: 10,
-                minute: 25,
-                meriden: 'PM',
-                format: 24
-            }
+      if (!this.userTime) {
+        this.userTime = {
+            hour: 10,
+            minute: 25,
+            meriden: 'PM',
+            format: 24
         }
+      }
     }
 
-    private get time(): string {
+    get time(): string {
+      if (!this.userTime) {
+        return '';
+      }
 
-        if (!this.userTime) {
-            return '';
-        }
+      let hour = this.userTime.hour < 10 ? `0${this.userTime.hour}` : this.userTime.hour.toString();
+      hour = this.userTime.hour > 24 ? '23' : hour;
+      hour = this.userTime.hour === 24 ? '00' : hour;
 
-        let meriden = `${this.userTime.meriden}`;
-        if (this.userTime.format === 24) {
-            meriden = '';
-        }
+      let minute = this.userTime.minute < 10 ? `0${this.userTime.minute}` : this.userTime.minute.toString();
+      minute = this.userTime.minute > 59 ? '59' : minute;
 
-        let hour = `${this.userTime.hour}`;
-        if (this.userTime.hour === 24) {
-            hour = '00';
-        }
+      this.userTime.hour = Number(hour);
+      this.userTime.minute = Number(minute);
 
-        if (this.userTime.minute === 0) {
-            return `${hour}:00 ${meriden}`;
-
-        } else if (this.userTime.minute < 10) {
-
-            const tt = '0' + String(this.userTime.minute);
-            return `${hour}:${tt} ${meriden}`;
-
-        } else {
-            return `${hour}:${this.userTime.minute} ${meriden}`;
-        }
+      let meriden = this.userTime.meriden;
+      return this.userTime.format === 24 ? `${hour}:${minute}` : `${hour}:${minute} ${meriden}`;
     }
 
+    /**
+     * update the time after the input loses focus
+     *
+     * @param value - input value
+     */
+    public onInputTimeLosesFocus(value: string ) {
+      const time = value.split(':');
+
+      let hour = this.checkForNoLetters(time[0]) ? time[0] : '00';
+      let minute = this.checkForNoLetters(time[1]) ? time[1] : '00';
+      let meriden = this.userTime.meriden;
+      this.timeInput.nativeElement.value = this.userTime.format === 24 ? `${hour}:${minute}` : `${hour}:${minute} ${meriden}`;
+
+      this.userTime.hour = Number(hour);
+      this.userTime.minute = Number(minute);
+      this.emituserTimeChange();
+    }
+
+    /**
+     * checks if the string contains letters
+     *
+     * @param value - string to check
+     * @return {@code true} if no letters found, {@code false} if letters found
+     */
+    checkForNoLetters(value: string): boolean {
+      if (isNaN(Number(value))) {
+        return false;
+      }
+      return true;
+    }
 
     public showPicker($event) {
 
@@ -77,7 +123,9 @@ export class WMatTimePickerComponent implements OnInit {
                     meriden: this.userTime.meriden,
                     format: this.userTime.format
                 },
-                color: this.color
+                color: this.color,
+                submit: this.submit,
+                revert: this.revert
             }
         });
 

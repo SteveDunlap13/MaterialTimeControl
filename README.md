@@ -1,6 +1,6 @@
 # Material Time Control
 
-A simple time picker component using angular/material2 (5.0.0-rc0).  
+A simple time picker component using angular/material2 (6.3.0).  
 While this component only shows a 12 hour clock it can easily be extended to show 12/24 mode.  
 The main focus here a button beside a normal textbox that opens a dialog to select your hour, minute and meridan.  
   
@@ -45,12 +45,65 @@ To build the module run
 tsc
 ```
 
+### Usage
+##### Tag:
+```
+<w-mat-timepicker> </w-mat-timepicker>
+```
+##### Attributes
+###### color:
+```
+color
+```
+
+###### default time:
+```
+userTime
+```
+
+###### position of the icon:
+```
+position
+```
+```
+default: left
+
+values:
+  right -> right of input filed
+  left -> left of input filed
+  inside -> inside the input filed 
+```
+
+###### translation for the placeholder at input field:
+```
+selectTime
+```
+```
+default: 'Select time'
+```
+
+###### translation for the submit button:
+```
+submit
+```
+```
+default: 'Okay'
+```
+
+###### translation for the submit button:
+```
+revert
+```
+```
+default: 'Cancel'
+```
+
 ### Prerequisites
 
 Required:  
-normal angular packages 5.0.1  
-"@angular/material": "^5.0.0"  
-"@angular/flex-layout": "^2.0.0-beta.10-4905443"
+normal angular packages 6.0.6  
+"@angular/material": "^6.3.0"  
+"@angular/flex-layout": "6.0.0-beta.16"
 
 
 ## License

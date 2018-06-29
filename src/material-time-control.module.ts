@@ -10,12 +10,10 @@ import {
     MatFormFieldModule
 } from '@angular/material';
 
-import {
-  WMatTimePickerComponent,
-  WTimeDialogComponent,
-  WClockComponent,
-  WTimeComponent
-} from './time-control';
+import { WClockComponent } from './time-control/w-clock/w-clock.component';
+import { WMatTimePickerComponent } from './time-control/w-mat-timepicker/w-mat-timepicker.component';
+import { WTimeDialogComponent } from './time-control/w-time-dialog/w-time-dialog.component';
+import { WTimeComponent } from './time-control/w-time/w-time.component';
 
 
 @NgModule({
