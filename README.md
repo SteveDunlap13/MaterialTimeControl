@@ -4,7 +4,8 @@ A simple time picker component using angular/material2 (5.0.0-rc0).
 While this component only shows a 12 hour clock it can easily be extended to show 12/24 mode.  
 The main focus here a button beside a normal textbox that opens a dialog to select your hour, minute and meridan.  
   
-See a demo with this stackblitz -> https://stackblitz.com/edit/material-time-control  
+See interactive example in stackbliz -> https://stackblitz.com/edit/material-time-control  
+See a demo with this stackblitz -> https://material-time-control.stackblitz.io/
   
 Enjoy!
 
